@@ -3,6 +3,8 @@
 
 @import "plain";
 
+@import "images";
+
 {% if site.plainwhite.search %}
   @import "search";
 {% endif %}

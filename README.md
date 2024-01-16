@@ -29,11 +29,45 @@
 ## 블로그 글 쓰기
 
 1.  글 쓰기: \_posts 폴더에서 글 쓰기
+    1. 제목 한글 가능, 카테고리 아무거나 설정 가능
+    2. 제목은 규칙에 맞게 작성해야 뜸(0000-00-00-abc.md)
 2.  이미지 삽입
     1. \_config.yml에 url: https://kiwowki.github.io 추가.
-    2. images폴더 안에 해당 post제목을 폴더로 만들고 그 안에 이미지 추가
-    3. ![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif) 로 이미지 추가하기 (중괄호 2개는 Jekyll에서 사용되는 Liquid 태그의 일부입니다. Liquid은 템플릿 언어로서, Jekyll에서는 정적 사이트를 빌드할 때 변수, 제어 구조, 필터 등을 사용하는 데에 활용됩니다.)
-    4. scss에서 p > img 로 css 조정
+    2. images폴더 안에 해당 post제목을 폴더로 만들고 그 안에 이미지 파일 추가.
+    3. `![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif)` 로 이미지 추가하기 (중괄호 2개는 Jekyll에서 사용되는 Liquid 태그의 일부입니다. Liquid은 템플릿 언어로서, Jekyll에서는 정적 사이트를 빌드할 때 변수, 제어 구조, 필터 등을 사용하는 데에 활용됩니다.)
+    4. 이미지 + 캡션 중앙정렬(테이블 사용하기)
+    ```md
+    ![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif) {:class="img-responsive"}
+    *대신 이쁜 꽃을 드리겠습니다.*
+    -> p > img, em: 좌측정렬 이미지 + 캡션
+
+    | ![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif) | 
+    -> table > tbody > tr > td : 중앙정렬 이미지
+
+    | ![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif) | 
+    |:--:| 
+    | 여기에 캡션을 작성합니다. |
+    -> table > thead > tr > th / table > tbody > tr > td : 중앙정렬 이미지 + 캡션
+    ```
+    ```scss
+    table {
+        width: 100%;
+        th,
+        td {
+            padding: 8px 13px;
+            // border: 1px solid #dfe2e5;
+            
+        }
+        th {
+            // background-color: #eee;
+            font-family: Raleway;
+        }
+    }
+    ```
+3. 댓글 기능(disqus 사용)
+    1. _config.yml 파일의 `plainwhite:`의 하위 속성으로 `disqus_shortname: KSH_blog` 작성.
+    이름은 무엇이든 상관없지만 Disqus에서 사용자의 웹사이트를 식별하는 데 사용되는 고유한 식별자이니 고려해서 작성.
+- 주의할 점: 글을 수정하면 댓글이 다 날아감으로 주의해서 수정할 것.    
 
 ## 트러블 슈팅
 
