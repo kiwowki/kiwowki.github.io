@@ -23,8 +23,17 @@
     4.  `bundle install` 입력
     5.  `bundle exec jekyll serve` 입력
     6.  Server address: `http://127.0.0.1:4000` 로 들어가서 확인하기
-    7.  _config.yml에서 디테일 수정(`bundle exec jekyll serve` 로 로컬 업데이트 하고 보면서 수정하기)
-    8. 
+    7.  \_config.yml에서 css 등 디테일 수정(`bundle exec jekyll serve` 로 로컬 업데이트 하고 보면서 수정하기)
+    8.  git에 push한 후 `kiwowki.github.io` 에 접속하여 확인.
+
+## 블로그 글 쓰기
+
+1.  글 쓰기: \_posts 폴더에서 글 쓰기
+2.  이미지 삽입
+    1. \_config.yml에 url: https://kiwowki.github.io 추가.
+    2. images폴더 안에 해당 post제목을 폴더로 만들고 그 안에 이미지 추가
+    3. ![kiwowki]({{site.url}}/images/2024-01-16-first_posting/blue-4.gif) 로 이미지 추가하기 (중괄호 2개는 Jekyll에서 사용되는 Liquid 태그의 일부입니다. Liquid은 템플릿 언어로서, Jekyll에서는 정적 사이트를 빌드할 때 변수, 제어 구조, 필터 등을 사용하는 데에 활용됩니다.)
+    4. scss에서 p > img 로 css 조정
 
 ## 트러블 슈팅
 
